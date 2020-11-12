@@ -15,11 +15,12 @@ my @frames;
 
 # INput
 $gb_input = Bio::SeqIO->new(-file=> "psen1.gb", -format => "genbank", -alphabet => "rna");
+
 # Lectura
 $seqObj = $gb_input->next_seq();
 
 # Output
-$out = Bio::SeqIO->new(-file=> '>psen1.fasta', -format => 'fasta');
+$out = Bio::SeqIO->new(-file=> '>psen1orig.fasta', -format => 'fasta');
 
 # 6 frames
 @frames = Bio::SeqUtils->translate_6frames($seqObj);
